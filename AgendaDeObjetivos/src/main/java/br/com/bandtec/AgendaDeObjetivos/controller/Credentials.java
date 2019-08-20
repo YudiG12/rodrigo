@@ -1,13 +1,13 @@
-package br.com.bandtec.AgendaDeObjetivos.controller;
+	package br.com.bandtec.AgendaDeObjetivos.controller;
 
 public class Credentials {
 
 	private String login;
 	private String password;
 	
-	public Credentials(String login, String senha) {
+	public Credentials(String login, String password) {
 		this.login = login;
-		this.password = senha;
+		this.password = password;
 	}
 
 	public String getLogin() {

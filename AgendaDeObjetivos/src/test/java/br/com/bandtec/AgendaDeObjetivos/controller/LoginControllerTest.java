@@ -17,10 +17,17 @@ public class LoginControllerTest {
 	}
 	
 	@Test
-	public void login_loginAndPasswordValid_returnStatusCode200() {
-		ResponseEntity<String> response = controller.authenticateLogin(new Credentials("admin","1223"));
+	public void login_loginAndPasswordValid_returnsOK() {
+		ResponseEntity<String> response = this.controller.authenticateLogin(new Credentials("admin","admin"));
 		assertEquals(HttpStatus.OK, response.getStatusCode());
 		assertEquals("Sucesso", response.getBody());
+	}
+	
+	@Test
+	public void login_loginAndPasswordInvalid_returnsUNATHORIZED() {
+		ResponseEntity<String> response = this.controller.authenticateLogin(new Credentials("admin","123"));
+		assertEquals(HttpStatus.UNAUTHORIZED, response.getStatusCode());
+		assertEquals("Erro", response.getBody());
 	}
 	
 }
