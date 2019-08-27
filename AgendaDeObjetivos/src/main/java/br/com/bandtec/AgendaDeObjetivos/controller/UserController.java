@@ -7,6 +7,8 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -18,7 +20,7 @@ public class UserController {
 		this.users = listUsers();
 	}
 
-	@GetMapping("/users/search/name/{userName}")
+	@GetMapping("/users/name/{userName}")
 	public ResponseEntity<List<User>> getUserByName(@PathVariable("userName") String name) {
 		List<User> usersByName = new ArrayList<User>();
 		for (User u : users) {
@@ -33,7 +35,7 @@ public class UserController {
 		}
 	}
 	
-	@GetMapping("/users/search/age/{userAge}")
+	@GetMapping("/users/age/{userAge}")
 	public ResponseEntity<List<User>> getUserByAge(@PathVariable("userAge") int age) {
 		List<User> usersByAge = new ArrayList<User>();
 		for (User u : users) {
@@ -49,7 +51,17 @@ public class UserController {
 	}
 
 	public List<User> listUsers() {
-		return Arrays.asList(new User("Rodrigo", 29), new User("Rodrigo", 30), new User("Yudi", 19));
+		ArrayList<User> users = new ArrayList<User>();
+		users.add(new User("Rodrigo", 29));
+		users.add(new User("Rodrigo", 30));
+		users.add(new User("Yudi", 19));
+		return users;
+	}
+	
+	@PostMapping("/users")
+	public ResponseEntity<User> insertUser(@RequestBody User user) {
+		this.users.add(user);
+		return ResponseEntity.ok(user);
 	}
 
 }
