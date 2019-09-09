@@ -26,7 +26,7 @@ public class ObjetivosController {
     @PostMapping("/objetivos")
     public ResponseEntity<String> insertObjetivo(@RequestBody Objetivo objetivo) {
         try {
-            this.todosObjetivos.salvar(objetivo);
+            this.todosObjetivos.save(objetivo);
             return ResponseEntity.ok("Sucesso!");
         }
         catch (Exception e) {
