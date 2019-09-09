@@ -1,5 +1,6 @@
 package br.com.bandtec.AgendaDeObjetivos.controller;
 
+import br.com.bandtec.AgendaDeObjetivos.model.Credential;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
@@ -18,14 +19,14 @@ public class LoginControllerTest {
 	
 	@Test
 	public void login_loginAndPasswordValid_returnsOK() {
-		ResponseEntity<String> response = this.controller.authenticateLogin(new Credentials("admin","admin"));
+		ResponseEntity<String> response = this.controller.authenticateLogin(new Credential("admin","admin"));
 		assertEquals(HttpStatus.OK, response.getStatusCode());
 		assertEquals("Sucesso", response.getBody());
 	}
 	
 	@Test
 	public void login_loginAndPasswordInvalid_returnsUNATHORIZED() {
-		ResponseEntity<String> response = this.controller.authenticateLogin(new Credentials("admin","123"));
+		ResponseEntity<String> response = this.controller.authenticateLogin(new Credential("admin","123"));
 		assertEquals(HttpStatus.UNAUTHORIZED, response.getStatusCode());
 		assertEquals("Erro", response.getBody());
 	}

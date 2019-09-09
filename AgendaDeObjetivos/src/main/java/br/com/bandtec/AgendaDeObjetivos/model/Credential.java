@@ -1,11 +1,11 @@
-	package br.com.bandtec.AgendaDeObjetivos.controller;
+	package br.com.bandtec.AgendaDeObjetivos.model;
 
-public class Credentials {
+public class Credential {
 
 	private String login;
 	private String password;
 	
-	public Credentials(String login, String password) {
+	public Credential(String login, String password) {
 		this.login = login;
 		this.password = password;
 	}

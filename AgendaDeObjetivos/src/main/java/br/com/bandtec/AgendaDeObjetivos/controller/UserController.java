@@ -1,5 +1,6 @@
 package br.com.bandtec.AgendaDeObjetivos.controller;
 
+import br.com.bandtec.AgendaDeObjetivos.model.User;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
