@@ -3,15 +3,27 @@ package br.com.bandtec.AgendaDeObjetivos.model;
 import java.time.LocalDate;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="T_OBJETIVOS")
 public class Objetivo {
 
+        @Id
+        @GeneratedValue
+        private int id;
+    
 	@JsonProperty
 	private String titulo;
 	
 	@JsonProperty
 	private String descricao;
 	
+        @Column(name = "DT_MAX_EXECUCAO")
 	@JsonProperty
 	private LocalDate dataMaximaParaExecucao;
 	
