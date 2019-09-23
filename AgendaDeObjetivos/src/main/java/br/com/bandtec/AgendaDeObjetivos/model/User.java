@@ -1,27 +1,20 @@
 package br.com.bandtec.AgendaDeObjetivos.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+
+import javax.persistence.*;
 
 @Entity
+@Table(name="T_USUARIOS")
 public class User {
 
     @Id
     @GeneratedValue
-    private int id;
+    private Long id;
     
-    @JsonProperty
-    private String login;
-    
-    @JsonProperty
-    private String senha;
-    
-    @JsonProperty
+    @Embedded
+    private Credential credential;
     private int age;
-     
-    @JsonProperty
     private String name;
 
     public User(String name, int age) {
@@ -29,20 +22,46 @@ public class User {
         this.name = name;
     }
 
-    public User(String login, String senha) {
-        this.login = login;
-        this.senha = senha;
+    public User() {
+    }
+
+    public User(String login, String password) {
+        super();
+        this.id = id;
     }
     
-    public User(int id, String login, String senha, int age, String name) {
+//    public User(int id, String login, String password, int age, String name) {
+//        this.id = id;
+//        this.login = login;
+//        this.password = password;
+//        this.age = age;
+//        this.name = name;
+//    }
+
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
         this.id = id;
-        this.login = login;
-        this.senha = senha;
+    }
+
+    public Credential getCredential() {
+        return credential;
+    }
+
+    public void setCredential(Credential credential) {
+        this.credential = credential;
+    }
+
+    public void setAge(int age) {
         this.age = age;
+    }
+
+    public void setName(String name) {
         this.name = name;
     }
-    
-    
 
     public int getAge() {
         return age;

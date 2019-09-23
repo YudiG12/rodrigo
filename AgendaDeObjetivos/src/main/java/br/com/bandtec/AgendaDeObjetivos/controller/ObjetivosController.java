@@ -1,8 +1,7 @@
 package br.com.bandtec.AgendaDeObjetivos.controller;
 
-import br.com.bandtec.AgendaDeObjetivos.model.User;
 import br.com.bandtec.AgendaDeObjetivos.model.Objetivo;
-import br.com.bandtec.AgendaDeObjetivos.model.resources.TodosObjetivos;
+import br.com.bandtec.AgendaDeObjetivos.resources.TodosObjetivos;
 import java.time.LocalDate;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
