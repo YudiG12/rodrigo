@@ -18,8 +18,8 @@ public class LoginController {
     @Autowired
     public LoginController(TodosUsuarios todosUsuarios) {
         this.todosUsuarios = todosUsuarios;
-    }    
-    
+    }
+
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody Credential credential) {
         if(todosUsuarios.existe(credential) == null) {

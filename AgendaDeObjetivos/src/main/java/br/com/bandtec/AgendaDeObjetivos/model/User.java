@@ -29,6 +29,11 @@ public class User {
         super();
         this.id = id;
     }
+
+    public User(Long id, String login, String password) {
+        super();
+        this.id = id;
+    }
     
 //    public User(int id, String login, String password, int age, String name) {
 //        this.id = id;
